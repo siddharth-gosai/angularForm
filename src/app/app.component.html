@@ -1,0 +1,71 @@
+
+<div class="content" role="main">
+
+  <div class="row">
+    <div class="col">
+      <h1>Reactive Forms</h1>
+      <hr>
+    </div>
+  </div>
+
+  <!-- main form -->
+  <div class="row">
+    <form action="" style="width:100%;"[formGroup]='reactiveForm' >
+      <div class="col">
+
+        <!-- personal info -->
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">First Name
+                <input type="text" 
+                  formControlName="firstName" id="fnText" placeholder="Enter first name"><br>
+                  <small *ngIf="reactiveForm.controls['firstName'].hasError('required') && reactiveForm.controls['firstName'].touched" id="fnHelp"
+                  class="alert">*{{alert}}</small>
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="col">
+            <div class="form-group">
+              <label for="fnText">Last Name
+                <input type="text"   
+                formControlName="lastName" id="lnText" placeholder="Enter last name"><br>
+                <small *ngIf="reactiveForm.controls['lastName'].hasError('minlength') && reactiveForm.controls['lastName'].touched" id="fnHelp" class="alert">*Min Length should be 3 char.</small>
+                <small *ngIf="reactiveForm.controls['lastName'].hasError('required') && reactiveForm.controls['lastName'].touched" id="fnHelp" class="alert" >*{{alert}}</small>
+              </label>
+             </div>
+          </div>
+          
+        </div>
+
+        <!-- seperator -->
+        <div class="row">
+          <div class="col">
+            <hr>
+          </div>
+        </div>
+
+        <!-- final action buttons -->
+        <div class="row justify-content-center">
+          <div class="col-2">
+            <button type="submit" (click)="onsubmitForm(reactiveForm)" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+<router-outlet></router-outlet>
